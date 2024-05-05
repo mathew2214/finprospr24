@@ -6,6 +6,8 @@
 
 
 
+
+
 using namespace std;
 
 
@@ -15,9 +17,13 @@ using namespace std;
 
 int main(){
 srand(100);
+
 City rolla;
 rolla.renderCity();
-
+for (int i=0;i<rolla.cityrobbers.size();i++){
+rolla.cityrobbers.at(i).move();
+cout<<endl;
+}
 
 
 return 0;

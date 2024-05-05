@@ -18,7 +18,7 @@ int type;
 //0=ordinary
 //1=greedy
 Robber(){}
-Robber(const Robber& other){//cloneing a robber. 
+Robber (const Robber& other) {//cloneing a robber. 
 xcord=other.xcord;
 ycord=other.ycord;
 type=other.type;
@@ -35,18 +35,38 @@ else{
 obag.push_back(ebag.at(1));
 }
 }
-//other.rbag=obag;
+vector<Jewel>& unconstdrbag =const_cast<vector<Jewel>&>(other.rbag);
+unconstdrbag=obag;
 this->rbag=nbag;
-other.clearbg();
+
+
 }
 
 Robber& operator--(){
 totalval -=rbag.back().jval;
 rbag.pop_back();
 }
-void clearbg(){
-rbag.clear();
-}
 
+void move(){
+int decide=0;
+vector<int> validmoves;
+for (int i=0;i<8;i++){
+validmoves.push_back(i);}
+cout<<"valid moves is: ";
+
+//get valid moves
+//first, make sure we cant go out of bounds. 
+switch (xcord){
+case 10:
+validmoves.erase(validmoves.begin()+4);
+
+};
+
+
+
+for (int i=0;i<validmoves.size();i++){
+cout<<validmoves.at(i)<<" ";
+}
+}
 };
 
