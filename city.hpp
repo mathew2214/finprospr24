@@ -74,12 +74,6 @@ int numrb=0;
 for (int i=0;i<cityysize;i++){
 for (int f=0;f<cityxsize;f++){
 cout<<citygrid[i][f];
-switch(citygrid[i][f]){
-case 'J':
-numj++;break;
-case 'r':
-numrb++;break;
-};
 }
 cout<<endl;
 }
