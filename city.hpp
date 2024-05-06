@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <chrono>
+#include <thread>
 using namespace std;
 
 class City {
@@ -15,6 +17,7 @@ public:
   static inline vector<Jewel> cityjewels;
   static inline vector<Robber<Jewel>> cityrobbers;
   City() {
+  //srand(100);
     int numj = 0;
     Jewel hold(0, 0, 0);
     while (numj < 60) {
@@ -89,7 +92,9 @@ int i=0;
 int f=0;
 while(i < cityysize){
 while(f<cityxsize){
+//this_thread::sleep_for(chrono::milliseconds(5));
 cout<<citygrid[i][f];f++;
+//this_thread::sleep_for(chrono::milliseconds(5));
 }
 f=0;
 cout<<endl;
