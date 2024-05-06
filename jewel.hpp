@@ -21,7 +21,9 @@ return *this;
 }
 
 Jewel& operator*=(const Jewel& thing){
+this->jval=thing.jval;
 this->jval*=2;
+
 return *this;
 }
 
