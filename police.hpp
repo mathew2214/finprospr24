@@ -3,12 +3,11 @@
 
 using namespace std;
 
-class Police{
+class Police {
 public:
-int totalval;
-int baddies;
-int xcord;
-int ycord;
-int id=rand();
-
+  int totalval;
+  int baddies;
+  int xcord;
+  int ycord;
+  int id = rand();
 };
