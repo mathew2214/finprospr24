@@ -20,7 +20,7 @@ srand(100);
 
 City rolla;
 rolla.renderCity();
-for (int i=0;i<rolla.cityrobbers.size();i++){
+for (unsigned int i=0;i<rolla.cityrobbers.size();i++){
 rolla.cityrobbers.at(i).move();
 cout<<endl;
 }

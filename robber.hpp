@@ -27,7 +27,7 @@ active=other.active;
 //random distribute loot, not copy. 
 vector<Jewel> ebag,obag,nbag;
 ebag=other.rbag;
-for (int i=0; i<ebag.size();i++){
+for (unsigned int i=0; i<ebag.size();i++){
 if(rand() % 2){
 nbag.push_back(ebag.at(i));
 }
@@ -64,7 +64,7 @@ validmoves.erase(validmoves.begin()+4);
 
 
 
-for (int i=0;i<validmoves.size();i++){
+for (unsigned int i=0;i<validmoves.size();i++){
 cout<<validmoves.at(i)<<" ";
 }
 }
