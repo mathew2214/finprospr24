@@ -4,13 +4,23 @@
 #include <vector>
 #include <chrono>
 #include <thread>
+
 #include <random>
 using namespace std;
 
+   const int cityxsize = 11;
+   const int cityysize = 13;
+   char citygrid[cityysize][cityxsize]; //so much headache all from the mandate that this be a c-array, as opposed to vectory of arbitrary data
+ vector<Robber<Jewel>> cityrobbers;
+ vector<Jewel> cityjewels;
+ vector<Police> rollapd;
+ int totalvalrobbers;
+ int toalvalpolice;
 class City {
-
-
 public:
+
+
+
 bool fiftyFifty() {//rand was just not working very well. so we're doing this now. 
     random_device rd;
     mt19937 gen(rd());
@@ -19,18 +29,15 @@ bool fiftyFifty() {//rand was just not working very well. so we're doing this no
     return result == 0;
 }
 
-  static const int cityxsize = 11;
-  static const int cityysize = 13;
-  char citygrid[cityysize][cityxsize]; //so much headache all from the mandate that this be a c-array, as opposed to vectory of arbitrary data
+   //char citygrid[cityysize][cityxsize]; //so much headache all from the mandate that this be a c-array, as opposed to vectory of arbitrary data
   
-  static inline vector<Police> rollapd;
-  static inline vector<Jewel> cityjewels;
-  static inline vector<Robber<Jewel>> cityrobbers;
+
   
   
   
   
   City() {
+  
 Jewel hold(0,0,0);
 //replace all of our nulls with zeroes. 
 for (int i=0;i<cityysize;i++){
@@ -67,11 +74,11 @@ jango.id=rand();
 jango.ycord=i;
 jango.xcord=k;
 jango.active=1;
-if(cityrobbers.size()<2){
-jango.type=1;
+if(cityrobbers.size()<=2){
+jango.type=0;
 }
-if(cityrobbers.size()>=2){
-jango.type=2;
+if(cityrobbers.size()>2){
+jango.type=1;
 }
 cityrobbers.push_back(jango);}
 }}
@@ -94,17 +101,25 @@ rollapd.push_back(wigum);
     int numpd = 0;
     for (int i = 0; i < cityysize; i++) {
       for (int f = 0; f < cityxsize;f++) {
- 
-        cout << citygrid[i][f];
-        switch (citygrid[i][f]){
-        case 'J':
-        numj++;break;
-        case 'r':
-        numrb++;break;
-        case 'p':
-        numpd++;break;
-        case 'R':
-        numj+=2;
+ cout << citygrid[i][f];
+switch (citygrid[i][f]){
+case 'J':
+numj++;break;
+case 'r':
+numrb++;break;
+case 'p':
+numpd++;break;
+case 'R':        
+int sconchtitan=0;
+for (unsigned int z=0;z<cityrobbers.size();z++){
+if(cityrobbers.at(z).xcord == f && cityrobbers.at(z).ycord == i){
+sconchtitan++;
+}
+}
+numrb+=sconchtitan;
+        
+        
+        
         };
        
       }
@@ -116,7 +131,7 @@ rollapd.push_back(wigum);
     cout << "jewels(J): " << numj << endl;
     cout << "robbers(r): " << numrb << endl;
     cout << "cops(p): "<<numpd<<endl;
-    cout<<"two robbers at same house(R)"<<endl;    
+    cout<<"multiple robbers at same house(R)"<<endl;    
   }
 
 
